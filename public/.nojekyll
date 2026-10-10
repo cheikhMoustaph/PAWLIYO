@@ -1,0 +1,2 @@
+# Disable Jekyll processing on GitHub Pages so Next.js output (which
+# includes files in folders starting with `_`) is served verbatim.

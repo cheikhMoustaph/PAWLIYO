@@ -92,3 +92,30 @@ Stage Summary:
   8. Prototype forms clearly disclose local-only behavior ✓
   9. Features complete: catalog browse/search/filter, product detail, demo cart, prototype forms, 404, all legal/static pages. Prototypes remaining: newsletter backend, real checkout, analytics (all intentionally deferred).
   10. Local commands: `bun install`, `cp .env.example .env.local`, `bun run dev` (port 3000).
+
+---
+Task ID: 3
+Agent: orchestrator
+Task: Push to GitHub at cheikhMoustaph/PAWLIYO and make the new build the default.
+
+Work Log:
+- Inspected repo: no remote configured; existing local commit had UUID message.
+- Verified tracked `.env` contained only a local SQLite path (no real secrets) but untracked it anyway to respect `.gitignore`'s `.env*` rule.
+- Reset git history to root commit and squashed into a single descriptive commit:
+  `1844df2 feat: PAWLIYO — premium pet essentials storefront` (full description in commit body).
+- Added remote `origin` → `https://github.com/cheikhMoustaph/PAWLIYO.git` without storing credentials in `.git/config`.
+- Validated the provided fine-grained PAT against `GET /user` → `cheikhMoustaph`.
+- Found the remote `main` branch already contained a DIFFERENT older implementation (Next.js + npm package-lock + different README) — did NOT blind force-push.
+- Created backup branch `legacy-previous-implementation` pointing at the old `main` SHA (`3635f41`) so the previous work is preserved.
+- Initial push went to a new branch `nextjs-16` (safe, non-destructive).
+- User confirmed "YES" to make nextjs-16 the new main.
+- PAT lacked Administration permission, so couldn't change default_branch via API. Switched strategy: force-pushed (with --force-with-lease against old SHA) local `main` → remote `main`. Default branch unchanged, old code preserved in backup.
+- Deleted the now-redundant `nextjs-16` branch.
+- Verified final state: default branch `main` at `1844df2`, with `legacy-previous-implementation` preserving the previous code.
+- Token hygiene: token used via env var + credential helper, never written to any file, cleared from env after each use.
+
+Stage Summary:
+- Live repo: https://github.com/cheikhMoustaph/PAWLIYO
+- Default branch `main` now points at the new PAWLIYO build (commit `1844df2`).
+- Backup branch `legacy-previous-implementation` preserves the older implementation (safe to delete later if not needed).
+- Pending user action: rotate the shared PAT at https://github.com/settings/tokens (it's in the IM transcript).

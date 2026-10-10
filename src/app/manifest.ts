@@ -1,6 +1,10 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
 
+// Required for `output: "export"` so the manifest route is statically
+// pre-rendered at build time rather than treated as a dynamic route.
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: `${siteConfig.name} — ${siteConfig.tagline}`,
