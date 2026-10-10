@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#F4EFE6"/>
+  <g transform="translate(330 290)" fill="#A18B72" opacity="0.85">
+    <path d="M70 60c20 0 36 16 36 35 0 9-8 15-19 15-5 0-9-1-13-3-3-1-6-2-10-2s-7 1-10 2c-4 2-8 3-13 3-11 0-19-6-19-15 0-19 16-35 36-35h12Z"/>
+    <ellipse cx="30" cy="35" rx="13" ry="16"/>
+    <ellipse cx="62" cy="22" rx="13" ry="16"/>
+    <ellipse cx="94" cy="35" rx="13" ry="16"/>
+    <ellipse cx="92" cy="6" rx="11" ry="14"/>
+  </g>
+  <text x="400" y="500" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" fill="#6f6354" letter-spacing="0.18em">PAWLIYO</text>
+  <text x="400" y="530" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#A18B72" letter-spacing="0.32em">PET ESSENTIALS</text>
+</svg>
